@@ -1,43 +1,29 @@
-Vue.createApp({
-    data() {
-        return {
-            perspective: 100,
-            rotateX: 0,
-            rotateY: 0,
-            rotateZ: 0
-        }
-    },
-    computed: {
-        box() {
-            return {
-                transform: `
-                    perspective(${this.perspective}px)
-                    rotateX(${this.rotateX}deg)
-                    rotateY(${this.rotateY}deg)
-                    rotateZ(${this.rotateZ}deg)
-                    `
-            }
-        }
-    },
-    methods: {
-        reset() {
-            this.perspective = 100
-            this.rotateX = 0
-            this.rotateY = 0
-            this.rotateZ = 0
-        },
-        copy() {
-            const el = document.createElement('textarea')
+let vm = Vue.createApp({
+  // template"
+})
 
-            el.setAttribute('readonly', '')
-            el.style.position = 'absolute'
-            el.style.left = '-9999px'
-            el.value = `transform: ${this.box.transform}`
-
-            document.body.appendChild(el)
-            el.select()
-            navigator.clipboard.writeText(this.box.transform)
-            document.body.removeChild(el)
-        }
+vm.component('hello', {
+  template: `<h1>{{ message }}</h1>`,
+  data() {
+    return {
+      message: 'Hello World!'
     }
-}).mount('#app')
+  }
+})
+
+vm.mount('#app')
+
+// let vm2 = Vue.createApp({
+//   data() {
+//     return {
+//       message: "Hello world!"
+//     }
+//   },
+//   render() {
+//     return Vue.h(
+//       'h1',
+//       this.message
+//     )
+//   }
+// }).mount("#app2")
+
