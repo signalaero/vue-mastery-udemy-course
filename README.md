@@ -1,4 +1,4 @@
-# slots
+# dynamic-components
 
 ## Project setup
 ```
