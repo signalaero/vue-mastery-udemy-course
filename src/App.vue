@@ -1,4 +1,5 @@
 <template>
+
   <button type="button" @click="flag = !flag">Toggle</button>
   
   <!-- <transition name="fade" mode="out-in">
@@ -17,9 +18,11 @@
    @before-leave="beforeLeave"
    @leave="leave"
    @after-leave="afterLeave"
+   :css="false"
   >
     <h2 v-if="flag">Hey</h2>
   </transition>
+
 </template>
 
 <script>
@@ -32,24 +35,36 @@ export default {
   },
   methods: {
     beforeEnter(el) {
-      console.log("before-enter event fired", el)
+      console.log("before-enter event fired", el);
     },
     enter(el, done) {
-      console.log("enter event fired", el)
-      done();
+      console.log("enter event fired", el);
+
+      const animation = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
+        duration: 1000, 
+      });
+
+      animation.onfinish = () => {
+        done();
+      }
     },
     afterEnter(el) {
-      console.log("after-enter event fired", el)
+      console.log("after-enter event fired", el);
     },
    beforeLeave(el) {
-      console.log("before-leave event fired", el)
+      console.log("before-leave event fired", el);
    },
    leave(el, done) {
-      console.log("leave event fired", el)
-      done();
+      const animation = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
+        duration: 1000, 
+      });
+
+      animation.onfinish = () => {
+        done();
+      }
    },
    afterLeave(el) {
-      console.log("afterLeave event fired", el)
+      console.log("afterLeave event fired", el);
    }, 
   }
 };
