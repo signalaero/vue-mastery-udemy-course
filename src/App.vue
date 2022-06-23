@@ -1,9 +1,3 @@
-/* eslint-disable vuejs-accessibility/label-has-for */
-/* eslint-disable vuejs-accessibility/label-has-for */
-/* eslint-disable vuejs-accessibility/label-has-for */
-/* eslint-disable vuejs-accessibility/label-has-for */
-/* eslint-disable vuejs-accessibility/label-has-for */
-/* eslint-disable vuejs-accessibility/label-has-for */
 <template>
   <!-- Header -->
   <header id="header" class="bg-gray-700">
